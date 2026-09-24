@@ -11,13 +11,13 @@ use Twig\Error\SyntaxError;
 
 class HelloController implements ControllerInterface
 {
-	public function execute(Request $request): string|null
-	{
-		return TwigCore::getEnvironment()->render('hello/hello.html.twig',
-		    [
-		        "titre"   => 'HelloController',
-		        "request" => $request
-		    ]
-		);
-	}
+    public function execute(Request $request): string|null
+    {
+        return TwigCore::getEnvironment()->render('hello/hello.html.twig',
+            [
+                "titre"   => 'HelloController',
+                "request" => $request
+            ]
+        );
+    }
 }

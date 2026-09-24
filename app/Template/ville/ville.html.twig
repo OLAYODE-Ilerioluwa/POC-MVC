@@ -3,5 +3,17 @@
 {% block title %}{{ titre }}{% endblock %}
 
 {% block content %}
-<h1>{{ titre }}</h1>
+    <h1>{{ titre }}</h1>
+        {% if add_ville is not null %}
+            <div class="alert alert-success" role="alert">
+                La ville est {{add_ville}}
+            </div>
+        {% endif %}
+
+        <p> Créer une nouvelle ville</p>
+        <form action="{{ getNameToPath('ville')}}" method="post">
+            <label for="nom_ville">Ville</label>
+            <input type="text" id="nom_ville" name="nom_ville">
+            <input type="submit" value="Envoyer">
+        </form>
 {% endblock %}

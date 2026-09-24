@@ -3,6 +3,6 @@ hello:
     controller: Controller\HelloController
     httpMethod: [GET]
 ville:
-    uri: /ville
+    uri: /lesvilles
     controller: Controller\VilleController
     httpMethod: [GET,POST]
