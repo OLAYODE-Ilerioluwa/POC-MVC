@@ -1,13 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block titre %}{% endblock %}</title>
-    </head>
-    <body>
-        {% block content %}{% endblock %}
-        {% block footer %}{% endblock %}
-        {% block javascript %}{% endblock %}
-    </body>
-</html>
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <h1>{{ titre }}</h1>
++    {% if add_ville is not null %}
++        <div class="alert alert-success" role="alert">
++            La ville est {{ add_ville }}
++        </div>
++    {% endif %}
++
++    <p>Créer une nouvelle ville</p>
++    <form action="/ville" method="post">
++        <label for="nom_ville">Ville</label>
++        <input type="text" id="nom_ville" name="nom_ville">
++        <input type="submit" value="Envoyer">
++    </form>
+{% endblock %}

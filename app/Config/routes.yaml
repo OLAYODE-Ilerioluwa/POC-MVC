@@ -1,5 +1,5 @@
 hello:
-    uri: /bonjour
+    uri: /hello
     controller: Controller\HelloController
     httpMethod: [GET]
 ville:
