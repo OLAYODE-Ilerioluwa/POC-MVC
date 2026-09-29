@@ -1,8 +1,12 @@
 hello:
-    uri: /hello
+    uri: /
     controller: Controller\HelloController
     httpMethod: [GET]
 ville:
     uri: /lesvilles
     controller: Controller\VilleController
-    httpMethod: [GET,POST]
+    httpMethod: [GET, POST]
+paris:
+    uri: /lesvilles/new
+    controller: Controller\ParisController
+    httpMethod: [GET]

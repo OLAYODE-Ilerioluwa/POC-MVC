@@ -14,8 +14,15 @@
         <form action="{{ getNameToPath('ville')}}" method="post">
             <label for="nom_ville">Ville</label>
             <input type="text" id="nom_ville" name="nom_ville">
+            <script>
+                var selectElmt = document.getElementById("nom_ville");
+            </script>
+            
             <input type="submit" value="Envoyer">
         </form>
 
-        <a href="/hello"> lien vers hello </a>
+        
+        
+        <a href="/hello"> lien vers hello <br></a>
+        <a href="/lesvilles/new?id={{selectElmt}}"> Lien </a>
 {% endblock %}

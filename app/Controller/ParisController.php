@@ -9,15 +9,19 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-class VilleController implements ControllerInterface
+class ParisController implements ControllerInterface
 {
+	
 	public function execute(Request $request): string|null
+
 	{
 		var_dump($request->getVars());
-		return TwigCore::getEnvironment()->render('ville/ville.html.twig',
+		$ville = $request-> get("id");
+		return TwigCore::getEnvironment()->render('paris/paris.html.twig',
 		    [
-		        "titre"   => 'VilleController',
-		        "add_ville" => $request->get('nom_ville')
+		        "titre"   => 'ParisController',
+		        "request" => $request,
+				"ville"=> $request -> get("id")
 		    ]
 		);
 	}
