@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+<h1>{{ titre }}</h1>
+    {% if prenom_info is not null %}
+            <p>
+                Votre prenom est {{prenom_info}}
+            </p>
+    {% endif %}
+    {% if nom_info is not null %}
+            <p> 
+                Votre nom est {{nom_info}}
+            </p>
+    {% endif %}
+    <a href="/lesvilles"> Retour </a>
+{% endblock %}

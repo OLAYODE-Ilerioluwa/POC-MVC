@@ -3,31 +3,45 @@
 {% block title %}{{ titre }}{% endblock %}
 
 {% block content %}
-    <h1>{{ titre }}</h1>
+    <h1 class=" flex justify-center text-blue-500 text-3xl  font-medium   ">{{ titre }}</h1>
         {% if add_ville is not null %}
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success " role="alert">
                 La ville est {{add_ville}}
             </div>
         {% endif %}
 
-        <p> Créer une nouvelle ville</p>
-        <form action="{{ getNameToPath('ville')}}" method="post">
-            <label for="nom_ville">Ville</label>
-            <input type="text" id="nom_ville" name="nom_ville">
-            <script>
-                var selectElmt = document.getElementById("nom_ville");
-            </script>
-            
-            <input type="submit" value="Envoyer">
-        </form>
+        <p class="italic text-lg underline"> Créer votre profil</p>
 
-        <h2> Liste des villes </h2>
+        <div class="flex  rounded-lg border-black-100 border w-100 h-50  ">
+            <form class="flex flex-col space-y-7 m-2"action="{{getNameToPath('resultat')}}" method="post">
+                <div class="space-x-5 space-y-5">
+                    <label for="nom_ville">Ville</label>
+                    <input type="text" id="nom_ville" name="nom_ville">
+                </div>
+                
+                <div>
+                    <label for="information">Nom</label>
+                    <input type="text" id="nom" name="nom">
+                </div>
+                    
+                <div>
+                    <label for="information">Prenom</label>
+                    <input type="text" id="prenom" name="prenom" >
+                </div>
+                
+                <div>
+                    <input type="checkbox"  value="false" required >
+                    <input type="submit" value="Envoyer">
+                </div>
+            </form>
+        </div>
+            <h2> Liste des villes </h2>
         <ul>
             {% for ville in villes%}
                 <li> {{ville.getNom()}} ({{ville.getCodePostal()}}) - {{ville.getNombreHabitant()}} habitants</li>
-                {%endfor%}
+            {%endfor%}
         </ul>
-        
-        <a href="/hello"> lien vers hello <br></a>
-        <a href="/lesvilles/new?id={{selectElmt}}"> Lien </a>
+            
+        <a href="/"> lien vers hello <br></a>
+        <a href="/lesvilles/resultat"> <br> Les resulat</a>
 {% endblock %}

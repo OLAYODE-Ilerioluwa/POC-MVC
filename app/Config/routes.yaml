@@ -10,3 +10,7 @@ paris:
     uri: /lesvilles/new
     controller: Controller\ParisController
     httpMethod: [GET]
+resultat:
+    uri: /lesvilles/resultat
+    controller: Controller\ResultatController
+    httpMethod: [GET, POST]

@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace Controller;
 
 
@@ -16,7 +18,9 @@ class VilleController implements ControllerInterface
 {
 	public function execute(Request $request): string|null
 	{
-		var_dump($request->getVars());
+
+		
+		
 		// Recupere l'object PHP PDO
 		$comBase = DatabaseService::getConnect();
 		// Requete SQL
@@ -27,6 +31,8 @@ class VilleController implements ControllerInterface
 		    [
 		        "titre"   => 'VilleController',
 		        "add_ville" => $request->get('nom_ville'),
+				"prenom_info" => $request->get('prenom'),
+				"nom_info" => $request->get("nom"),
 				"villes" => (new VilleRepository())->getVilles()
 		    ]
 		);

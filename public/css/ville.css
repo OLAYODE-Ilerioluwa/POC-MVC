@@ -1,0 +1,23 @@
+
+#titre {
+    color: #db0202;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+
+#text1 {
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+}
+
+#form2 {
+    display:flex;
+    align-items: center;
+}
+
+#prenom {
+    display: block;
+
+}
