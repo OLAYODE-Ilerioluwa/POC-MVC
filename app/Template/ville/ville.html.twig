@@ -21,7 +21,12 @@
             <input type="submit" value="Envoyer">
         </form>
 
-        
+        <h2> Liste des villes </h2>
+        <ul>
+            {% for ville in villes%}
+                <li> {{ville.getNom()}} ({{ville.getCodePostal()}}) - {{ville.getNombreHabitant()}} habitants</li>
+                {%endfor%}
+        </ul>
         
         <a href="/hello"> lien vers hello <br></a>
         <a href="/lesvilles/new?id={{selectElmt}}"> Lien </a>
