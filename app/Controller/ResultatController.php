@@ -14,13 +14,14 @@ class ResultatController implements ControllerInterface
 	
 	public function execute(Request $request): string|null
 	{
-		var_dump($_POST['prenom']);
+		
 		return TwigCore::getEnvironment()->render('resultat/resultat.html.twig',
 		    [
 		        "titre"   => 'ResultatController',
 		        "request" => $request,
 				"prenom_info" => $request->get('prenom'),
 				"nom_info"=> $request->get('nom'),
+				"ville_info"=> $request->get('nom_ville'),
 		    ]
 		);
 	}

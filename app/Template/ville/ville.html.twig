@@ -3,45 +3,74 @@
 {% block title %}{{ titre }}{% endblock %}
 
 {% block content %}
-    <h1 class=" flex justify-center text-blue-500 text-3xl  font-medium   ">{{ titre }}</h1>
+    <header class="m-2">
+         <h1 class=" flex justify-center text-blue-500 text-3xl  font-medium font-serif   ">{{ titre }}</h1>
+    </header>
         {% if add_ville is not null %}
             <div class="alert alert-success " role="alert">
                 La ville est {{add_ville}}
             </div>
         {% endif %}
 
-        <p class="italic text-lg underline"> Créer votre profil</p>
+   
 
-        <div class="flex  rounded-lg border-black-100 border w-100 h-50  ">
-            <form class="flex flex-col space-y-7 m-2"action="{{getNameToPath('resultat')}}" method="post">
-                <div class="space-x-5 space-y-5">
-                    <label for="nom_ville">Ville</label>
-                    <input type="text" id="nom_ville" name="nom_ville">
+    <body class="m-2 ">
+        <div class="relative ml-7">
+            <p class="italic text-4xl font-semibold text-blue-500"> Créer votre profil </p>
+        </div>
+        
+
+        <div class="flex  rounded-lg border-blue-500 border-3 border w-80 h-55 m-2 p-2  bg-blue-100">
+            <form class="flex flex-col space-y-7 m-2 w-full"action="{{getNameToPath('resultat')}}" method="post">
+                <div class="flex items-center">
+                    <label class="w-24 font-semibold" for="nom_ville">Ville</label>
+                    <input class="flex-1 min-w-0 border border-blue-500  bg-white" type="text" id="nom_ville" name="nom_ville">
                 </div>
                 
-                <div>
-                    <label for="information">Nom</label>
-                    <input type="text" id="nom" name="nom">
+                <div class="flex items-center">
+                    <label class="w-24 font-semibold" for="nom">Nom</label>
+                    <input class="flex-1 min-w-0 border border-blue-500 bg-white" type="text" id="nom" name="nom">
                 </div>
                     
-                <div>
-                    <label for="information">Prenom</label>
-                    <input type="text" id="prenom" name="prenom" >
+                <div class="flex items-center">
+                    <label class="w-24 font-semibold" for="prenom">Prenom</label>
+                    <input class="flex-1 min-w-0 border border-blue-500  bg-white" type="text" id="prenom" name="prenom" >
                 </div>
                 
-                <div>
-                    <input type="checkbox"  value="false" required >
-                    <input type="submit" value="Envoyer">
+                <div class="flex items-center gap-10 ">
+                    <div class="flex items-center gap-2">
+                        <label class="font-semibold" for="valider"> Cocher pour valider </label>
+                        <input  id="valider" type="checkbox" value="false" required>
+                    </div>
+                    <div class="flex justify-end "> 
+                        <input class="border border rounded-lg p-1 bg-blue-500 text-white font-bold cursor-pointer hover:bg-white hover:text-blue-500  transition-colors duration-200"  type="submit" value="Envoyer">
+                    </div>
+                   
                 </div>
             </form>
         </div>
-            <h2> Liste des villes </h2>
-        <ul>
-            {% for ville in villes%}
-                <li> {{ville.getNom()}} ({{ville.getCodePostal()}}) - {{ville.getNombreHabitant()}} habitants</li>
-            {%endfor%}
-        </ul>
+
+        <div class="w-fit ">
+
+            <h2 class="text-lg p-2  "> Liste des villes : </h2>
+            <ul class="border border-black divide-y divide-black">
+                {% for ville in villes %}
+                    <li class="grid grid-cols-3 gap-x-6 px-2 py-2">
+                        <span>{{ville.getNom()}}</span>
+                        <span>{{ville.getCodePostal()}}</span>
+                        <span>{{ville.getNombreHabitant()}} habitants</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        
+        </div>
             
-        <a href="/"> lien vers hello <br></a>
-        <a href="/lesvilles/resultat"> <br> Les resulat</a>
+
+        <div class="flex items-stretch gap-4 mt-4"> 
+            <a href="/" class="border border rounded-lg p-1 bg-blue-500 text-white font-bold cursor-pointer hover:bg-white hover:text-blue-500  transition-colors duration-200"> lien vers hello </a>
+            <a href="/lesvilles/resultat" class="border border rounded-lg p-1 bg-blue-500 text-white font-bold cursor-pointer hover:bg-white hover:text-blue-500  transition-colors duration-200">  Les resultats </a>
+        </div>   
+        
+    </body>
+       
 {% endblock %}

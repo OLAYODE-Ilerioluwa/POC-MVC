@@ -4,6 +4,11 @@
 
 {% block content %}
 <h1>{{ titre }}</h1>
+    {% if ville_info is not null %}
+            <p>
+                Provenant de {{ville_info}}
+            </p>
+    {% endif %}
     {% if prenom_info is not null %}
             <p>
                 Votre prenom est {{prenom_info}}
