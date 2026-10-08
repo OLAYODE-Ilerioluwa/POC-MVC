@@ -14,3 +14,15 @@ resultat:
     uri: /lesvilles/resultat
     controller: Controller\ResultatController
     httpMethod: [GET, POST]
+api_ville:
+    uri: /api/ville
+    controller: Controller\api\VilleController
+    httpMethod: [GET, POST]
+api_ville-detail:
+    uri: '/api/ville/{id}'
+    controller: Controller\api\VilleDetailController
+    httpMethod: [GET]
+villeupdate:
+    uri: /ville/{id}/update
+    controller: Controller\VilleUpdateController
+    httpMethod: [GET, POST]

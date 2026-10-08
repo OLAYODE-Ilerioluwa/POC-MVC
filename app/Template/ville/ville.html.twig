@@ -50,6 +50,20 @@
             </form>
         </div>
 
+        <h2>Créer une nouvelle ville</h2>
+        <form action="{{ getNameToPath('ville') }}" method="post">
+            <label for="nom">Ville</label>
+            <input type="text" id="nom" name="nom">
+
+            <label for="code_postal">Code postal</label>
+            <input type="text" id="code_postal" name="code_postal">
+
+            <label for="nombre_habitant">Nombre d'habitants</label>
+            <input type="text" id="nombre_habitant" name="nombre_habitant">
+
+            <input type="submit" value="Envoyer">
+        </form>
+
         <div class="w-fit ">
 
             <h2 class="text-lg p-2  "> Liste des villes : </h2>
