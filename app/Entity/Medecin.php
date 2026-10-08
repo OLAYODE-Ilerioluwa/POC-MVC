@@ -36,4 +36,10 @@ class Medecin
     {
         return $this->titre;
     }
+
+    public function updateTitre($new_titre)
+    {
+        $this->titre = $new_titre;
+        return $this->titre;
+    }
 }

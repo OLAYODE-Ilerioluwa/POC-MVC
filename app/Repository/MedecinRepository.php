@@ -20,4 +20,20 @@ class MedecinRepository
 
         return $medecin;
     }
+
+    public function createMedecin(Medecin $medecin): int
+    {
+        $combase = DatabaseService::getConnect();
+        $statementPDO = $combase->prepare(
+            "INSERT INTO medecin (id, nom, prenom, titre) VALUES (:id, :nom, :prenom, :titre)"
+        );
+        $statementPDO->execute([
+            'id' => $medecin->getId(),
+            'nom' => $medecin->getNom(),
+            'prenom'=> $medecin->getPrenom(),
+            'titre'=> $medecin->getTitre(),
+        ]);
+
+        return (int) $combase->lastInsertId();
+    }
 }

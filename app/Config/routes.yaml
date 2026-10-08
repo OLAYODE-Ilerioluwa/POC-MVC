@@ -30,3 +30,7 @@ medecin:
     uri: /medecin
     controller: Controller\MedecinController
     httpMethod: [GET, POST]
+medecinupdate:
+    uri: /medecinupdate
+    controller: Controller\MedecinUpdateController
+    httpMethod: [GET]

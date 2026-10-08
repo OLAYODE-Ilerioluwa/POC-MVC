@@ -3,16 +3,40 @@
 {% block title %}{{ titre }}{% endblock %}
 
 {% block content %}
-<h1>{{ titre }}</h1>
+<h1 class="text-blue-500 font semi-bold flex justify-center text-2xl ">{{ titre }}</h1>
 
-<h2 class="text-lg p-2  "> Liste des medecin : </h2>
-    <ul class="border border-black divide-y divide-black">
+<h2 class="text-lg p-2 underline text-blue-500 "> Liste des medecin : </h2>
+    <ul class="border border-black divide-y  divide-black">
         {% for medecin in medecin %}
-            <li class="grid grid-cols-3 gap-x-6 px-2 py-2">
-                <span>{{medecin.getNom()}}</span>
-                <span>{{medecin.getPrenom}}</span>
-                <span>{{medecin.getTitre}} </span>
+            <li class="grid grid-cols-4 gap-x-6 px-2 py-2">
+                
+                <span id="nom">{{medecin.getNom()}}</span>
+                <span>{{medecin.getPrenom()}}</span>
+                <span>{{medecin.getTitre()}} </span>
             </li>
         {% endfor %}
     </ul>
+
+<h2 class="text-lg p-2 underline"> Créer un nouveau medecin </h2>
+
+
+<form class="flex flex-col space-y-7 m-2 w-full" action="{{ getNameToPath('medecin') }}" method="post">
+    <label for="nom">Nom</label>
+    <input class="flex-1 min-w-0 border border-blue-500  bg-white" type="text" id="nom" name="nom">
+
+    <label for="prenom">Prenom</label>
+    <input class="flex-1 min-w-0 border border-blue-500  bg-white" type="text" id="prenom" name="prenom">
+
+    <label for="titre">Titre</label>
+    <input class="flex-1 min-w-0 border border-blue-500  bg-white" type="text" id="titre" name="titre">
+
+    <input type="submit" value="Envoyer">
+</form>
+
+    
+
+
+
+
+
 {% endblock %}
