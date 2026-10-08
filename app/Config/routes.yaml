@@ -23,6 +23,10 @@ api_ville-detail:
     controller: Controller\api\VilleDetailController
     httpMethod: [GET]
 villeupdate:
-    uri: /ville/{id}/update
+    uri: '/ville/{id}/update'
     controller: Controller\VilleUpdateController
+    httpMethod: [GET, POST]
+medecin:
+    uri: /medecin
+    controller: Controller\MedecinController
     httpMethod: [GET, POST]

@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+<h1>{{ titre }}</h1>
+
+<h2 class="text-lg p-2  "> Liste des medecin : </h2>
+    <ul class="border border-black divide-y divide-black">
+        {% for medecin in medecin %}
+            <li class="grid grid-cols-3 gap-x-6 px-2 py-2">
+                <span>{{medecin.getNom()}}</span>
+                <span>{{medecin.getPrenom}}</span>
+                <span>{{medecin.getTitre}} </span>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
